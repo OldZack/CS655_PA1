@@ -14,6 +14,7 @@ public class server{
 		// Assign the port number.
 		int port = Integer.parseInt(args[0]);
 
+		// Using infinite loops to make server repeatdly check connections from clients.
 		while (true) {
 			try (
 					// Generate the server socket.

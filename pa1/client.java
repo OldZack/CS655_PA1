@@ -23,13 +23,12 @@ public class client{
 				PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 				// Generate reader and writer of socket.
 				BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-				// Generate a reader of the user input.
 				BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		) {
 			String userInput = stdIn.readLine();
 			// Send out the message user inputs to the server.
 			out.println(userInput);
-			// Print out the message get backed from the server.
+			// Print out the message got backed from the server.
 			System.out.println("Echo message: " + in.readLine());
 		} catch (UnknownHostException e) {
 			System.err.println("Don't know about host " + hostName);
