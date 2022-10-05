@@ -10,11 +10,8 @@ It receives message from client and send the same message back.
  */
 class Multithreading extends Thread
 {
-    private Socket socket;
-    private int portNumber;
-    private Integer prob_num;
-    private Integer delay;
-    private Integer count;
+    Socket socket;
+    int portNumber;
     public Multithreading(Socket s, int port){
         socket = s;
         portNumber = port;
@@ -26,17 +23,11 @@ class Multithreading extends Thread
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         ){
-            String [] inputs = in.readLine().split(" ");
-            if (inputs.length == 5 && inputs[0].equals("s") && (inputs[1].equals("rtt") || inputs[1].equals("tput"))){
-                prob_num = Integer.parseInt(inputs[2]);
-                delay = Integer.parseInt(inputs[4]);
-                out.println("200 OK: Ready");
+            // Send out the same message received from the client.
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                out.println(inputLine);
             }
-            else{
-                out.println("404 ERROR: Invalid Connection Setup Message");
-                System.exit(1);
-            }
-
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port "
                     + portNumber + " or listening for a connection");
