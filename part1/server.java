@@ -18,6 +18,7 @@ public class server{
 		int port = Integer.parseInt(args[0]);
 		// Generate the server socket.
 		ServerSocket serverSocket = new ServerSocket(port);
+		// Repeatedly listen to cilent connection.
 		while (true) {
 				// Generate the client socket once a client is connected.
 				Socket socket = serverSocket.accept();

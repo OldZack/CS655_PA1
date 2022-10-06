@@ -26,6 +26,7 @@ class Multithreading extends Thread
             // Send out the same message received from the client.
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
+                System.out.println("Received: "+inputLine);
                 out.println(inputLine);
             }
         } catch (IOException e) {

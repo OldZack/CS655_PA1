@@ -31,11 +31,12 @@ public class client{
 				// Generate a reader of the user input.
 				BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		) {
+			System.out.println("Please put in your message: ")
 			String userInput = stdIn.readLine();
 			// Send out the message user inputs to the server.
 			out.println(userInput);
 			// Print out the message get backed from the server.
-			System.out.println("Echo message: " + in.readLine());
+			System.out.println("Message returned: " + in.readLine());
 		} catch (UnknownHostException e) {
 			System.err.println("Don't know about host " + hostName);
 			System.exit(1);
